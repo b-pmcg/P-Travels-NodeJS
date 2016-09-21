@@ -1,0 +1,55 @@
+extends layout.pug
+
+block content
+    #map
+    #leg_title
+        span#leg_items Map Legend
+    #leg
+        each layer, i in jmap
+            input(id=layer.name)(type='checkbox', checked)
+            span#leg_items #{layer.name}
+            br
+    script(type='text/javascript').
+        var map = L.map('map').setView([#{lat},#{lng}], 14);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        //for now this needs to be here until I figure out why it loads immediately
+        $.getJSON('/maplayers',function(result){
+            $.each(result, function(i, mlayer){
+                $.getJSON('/mapjson/' + mlayer.name, function(data) {
+                  addLayer(data, mlayer.name );
+                   });
+            });
+        });
+
+        /*get JSON from pnet api*/
+        $.getJSON('/pnet',function(result){
+          /*console.log(typeof result);
+          console.log(result);*/
+          addLayer(result, "Venues")
+        });
+
+        function addLayer(layer, name) {
+          //console.log(layer + name);
+            var leaf_layer;
+                leaf_layer = L.geoJson(layer, {
+
+                    onEachFeature: function (feature, layer) {
+                          console.log(feature.properties.venuename);
+                         layer.bindPopup(feature.properties.venuename + "</br>" + feature.properties.formatted_address);
+                     }
+                 });
+
+            leaf_layer.addTo(map);
+
+            $('#' + name).click(function(e) {
+
+                if (map.hasLayer(leaf_layer)) {
+                    map.removeLayer(leaf_layer);
+                } else {
+                    map.addLayer(leaf_layer);
+                }
+            });
+        }

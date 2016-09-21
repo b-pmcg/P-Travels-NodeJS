@@ -1,0 +1,329 @@
+/*JSON data for reference in 'layercollection' mongodb collection*/
+
+db.layercollection.insert({
+    "type": "MultiPoint",
+    "name": "points",
+    "color": "#0000ff",
+    "style": {
+        "radius": 8,
+        "fillColor": "#00ce00",
+        "color": "#008c00",
+        "weight": 2,
+        "opacity": 1,
+        "fillOpacity": 1
+    },
+    "coordinates": [
+       [-73.9580, 40.8003 ],
+       [-73.9498, 40.7968  ],
+       [ -73.9737, 40.7648 ],
+       [ -73.9814, 40.7681 ]
+    ]
+})
+
+db.layercollection.insert({
+  "type": "MultiLineString",
+  "name": "lines",
+  "style": {
+    "color": "#ff46b5",
+    "weight": 10,
+    "opacity": 0.85
+ },
+  "coordinates": [
+     [ [ -73.96943, 40.78519 ], [ -73.96082, 40.78095 ] ],
+     [ [ -73.96415, 40.79229 ], [ -73.95544, 40.78854 ] ],
+     [ [ -73.97162, 40.78205 ], [ -73.96374, 40.77715 ] ],
+     [ [ -73.97880, 40.77247 ], [ -73.97036, 40.76811 ] ]
+  ]
+})
+
+db.layercollection.insert({
+    "type": "FeatureCollection",
+     "name": "polygons",
+    "features":
+    [{
+    "type": "Feature",
+    "properties": {"style": "Orange", "name": "Orange"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates":  [ [
+            [  -73.9814, 40.7681 ], [ -73.958, 40.8003 ], [ -73.9737, 40.7648 ], [ -73.9814, 40.7681 ]
+        ] ]
+    }
+}, {
+    "type": "Feature",
+    "properties": {"style": "Blue", "name": "Blue"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates":  [ [
+            [ -73.958, 40.8003 ], [ -73.9498, 40.7968 ], [ -73.9737, 40.7648 ], [ -73.958, 40.8003 ]
+        ] ]
+    }
+}]
+})
+
+
+/*returned by api /mapjson/points*/
+{
+  "_id":"57d763018a1d9f5d6ecb5fe1",
+  "type":"MultiPoint",
+  "name":"points",
+  "color":"#0000ff",
+  "style":{
+    "radius":8,
+    "fillColor":"#00ce00",
+    "color":"#008c00",
+    "weight":2,
+    "opacity":1,
+    "fillOpacity":1
+    },
+    "coordinates":[
+      [-73.958,40.8003],
+      [-73.9498,40.7968],
+      [-73.9737,40.7648],
+      [-73.9814,40.7681]
+    ]}
+
+/*returned by google geo thing */
+{
+  "_id":"57d763018a1d9f5d6ecb5fe1",
+  "type":"MultiPoint",
+  "name":"Cool",
+  "color":"#0000ff",
+  "style":{
+    "radius":8,
+    "fillColor":"#00ce00",
+    "color":"#008c00",
+    "weight":2,
+    "opacity":1,
+    "fillOpacity":1
+    },
+    "coordinates":[
+      ["-104.7956055,39.9129412"],
+      ["-73.6595729,40.7399746"],
+      ["-73.6595729,40.7399746"],
+      ["-87.60837529999999,41.8595761"],
+      ["-87.60837529999999,41.8595761"],
+      ["-87.60837529999999,41.8595761"],
+      ["-87.60837529999999,41.8595761"],
+      ["-87.60837529999999,41.8595761"],
+      ["-87.60837529999999,41.8595761"]
+      ]}
+{"_id":"57d763018a1d9f5d6ecb5fe1","type":"MultiPoint","name":"Cool","color":"#0000ff","style":{"radius":8,"fillColor":"#00ce00","color":"#008c00","weight":2,"opacity":1,"fillOpacity":1},
+"coordinates":[["-104.7956055,39.9129412"],["-73.6595729,40.7399746"],["-73.6595729,40.7399746"],["-87.60837529999999,41.8595761"],["-87.60837529999999,41.8595761"],["-87.60837529999999,41.8595761"],["-87.60837529999999,41.8595761"],["-87.60837529999999,41.8595761"],["-87.60837529999999,41.8595761"]]}
+
+
+/*returned by /pnet when using new index*/
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.60837529999999,
+          41.8595761
+        ]
+      },
+      "properties": {
+        "showid": "1330538488",
+        "showdate": "2012-06-29",
+        "artist": "1",
+        "venuename": "Klipsch Music Center",
+        "state": "IN",
+        "city": "Noblesville",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "June 29, 2012",
+        "relativetime": "4 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.60837529999999,
+          41.8595761
+        ]
+      },
+      "properties": {
+        "showid": "1363195585",
+        "showdate": "2013-07-19",
+        "artist": "1",
+        "venuename": "FirstMerit Bank Pavilion at Northerly Island",
+        "state": "IL",
+        "city": "Chicago",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "July 19, 2013",
+        "relativetime": "3 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.60837529999999,
+          41.8595761
+        ]
+      },
+      "properties": {
+        "showid": "1363195615",
+        "showdate": "2013-07-20",
+        "artist": "1",
+        "venuename": "FirstMerit Bank Pavilion at Northerly Island",
+        "state": "IL",
+        "city": "Chicago",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "July 20, 2013",
+        "relativetime": "3 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.60837529999999,
+          41.8595761
+        ]
+      },
+      "properties": {
+        "showid": "1363195648",
+        "showdate": "2013-07-21",
+        "artist": "1",
+        "venuename": "FirstMerit Bank Pavilion at Northerly Island",
+        "state": "IL",
+        "city": "Chicago",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "July 21, 2013",
+        "relativetime": "3 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.60837529999999,
+          41.8595761
+        ]
+      },
+      "properties": {
+        "showid": "1394572982",
+        "showdate": "2014-07-18",
+        "artist": "1",
+        "venuename": "FirstMerit Bank Pavilion at Northerly Island",
+        "state": "IL",
+        "city": "Chicago",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "July 18, 2014",
+        "relativetime": "2 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.60837529999999,
+          41.8595761
+        ]
+      },
+      "properties": {
+        "showid": "1394573018",
+        "showdate": "2014-07-19",
+        "artist": "1",
+        "venuename": "FirstMerit Bank Pavilion at Northerly Island",
+        "state": "IL",
+        "city": "Chicago",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "July 19, 2014",
+        "relativetime": "2 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6595729,
+          40.7399746
+        ]
+      },
+      "properties": {
+        "showid": "1394573037",
+        "showdate": "2014-07-20",
+        "artist": "1",
+        "venuename": "FirstMerit Bank Pavilion at Northerly Island",
+        "state": "IL",
+        "city": "Chicago",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "July 20, 2014",
+        "relativetime": "2 years ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6595729,
+          40.7399746
+        ]
+      },
+      "properties": {
+        "showid": "1442433672",
+        "showdate": "2015-12-31",
+        "artist": "1",
+        "venuename": "Madison Square Garden",
+        "state": "NY",
+        "city": "New York",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "December 31, 2015",
+        "relativetime": "9 months ago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.7956055,
+          39.9129412
+        ]
+      },
+      "properties": {
+        "showid": "1442433689",
+        "showdate": "2016-01-01",
+        "artist": "1",
+        "venuename": "Madison Square Garden",
+        "state": "NY",
+        "city": "New York",
+        "country": "USA",
+        "venue": "",
+        "nicedate": "January 01, 2016",
+        "relativetime": "9 months ago"
+      }
+    }
+  ]
+}
+
+9 8
+8 7
+7 6
+6
+5
+4
+3
+2
+1
+0
